@@ -499,15 +499,3 @@ linear-gradient(#000 10px,transparent 10px) 9px 9px/18px 18px,#fff;border:4px so
 .investor-holding{grid-template-columns:28px 38px minmax(130px,1fr) 62px minmax(90px,.55fr)}.holding-logo{width:36px;height:36px;border-radius:11px}.holding-logo img{padding:5px}.holding-logo .logo-fallback{font-size:9px}
 .drawer-company .stock-logo{display:grid;place-items:center;color:#fff}.drawer-company .stock-logo img{padding:8px}
 @media(max-width:720px){.investor-holding{grid-template-columns:24px 34px 1fr 55px}.holding-logo{width:32px;height:32px}.holding-bar{display:none}}
-
-/* KCEX black-and-gold perpetual trading palette */
-.perp-panel{--kcex-gold:#efbc7b;--kcex-gold-strong:#dfa05a;--kcex-gold-soft:#30271d;background:linear-gradient(155deg,#111315,#17191c);border-color:#332d26;box-shadow:0 24px 58px rgba(13,11,8,.28)}
-.perp-badge{background:#29251f;color:#efc895;border:1px solid #413629}.perp-sub{color:#99958e}.perp-symbol{color:#fff}
-.side-switch{background:#242326;border:1px solid #34302b}.side-switch button{color:#9d9b97}.side-switch button.long.active{background:linear-gradient(135deg,var(--kcex-gold),var(--kcex-gold-strong));color:#17110b;box-shadow:0 7px 18px rgba(223,160,90,.18)}.side-switch button.short.active{background:#e35c5a;color:#fff}
-.order-type-tabs button,.leverage-button,.lev-chip,.percent-row button{background:#202124;border-color:#373737;color:#9e9f9f}.order-type-tabs button:hover,.leverage-button:hover,.lev-chip:hover,.percent-row button:hover{border-color:#7b6246;color:#f0c996}
-.order-type-tabs button.active,.lev-chip.active{background:#f3e8d8;color:#17120c;border-color:#f3e8d8}.leverage-button{color:#efc48f;border-color:#544432;background:#28231d}
-.trade-watermark{color:#6e665d;opacity:.52}.balance-row{color:#8f8e8b}.balance-row b{color:#f3d2a9}
-.trade-field{background:#202226;border-color:#3a3732}.trade-field:focus-within{border-color:#b7834b;box-shadow:0 0 0 3px rgba(223,160,90,.09)}.trade-field label{color:#9b9994}.trade-input-wrap input{color:#fff}.trade-input-wrap span{color:#d7c2a8}.trade-field small{color:#77736d}
-.percent-row button.active{background:var(--kcex-gold-soft);color:#f2c993;border-color:#8d6840}.trade-summary-item{background:#202124;border:1px solid #2d2c2a}.trade-summary-item small{color:#8e8b85}.trade-summary-item b{color:#f6e0c4}
-.trade-submit{background:linear-gradient(135deg,var(--kcex-gold),var(--kcex-gold-strong));color:#17110b;box-shadow:0 12px 28px rgba(223,160,90,.17)}.trade-submit:hover{filter:brightness(1.04);box-shadow:0 15px 32px rgba(223,160,90,.24)}.trade-submit.short{background:#e35c5a;color:#fff;box-shadow:0 12px 28px rgba(227,92,90,.15)}
-.trade-pro-link{border-color:#514637;color:#f0c58f;background:rgba(239,188,123,.035)}.trade-pro-link:hover{border-color:var(--kcex-gold);background:rgba(239,188,123,.08);box-shadow:none}.trade-note{color:#74716c}
