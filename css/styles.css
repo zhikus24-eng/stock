@@ -41,7 +41,6 @@ a{text-decoration:none;color:inherit}
 .brand-sub{font-size:11px;color:var(--muted);padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.65);white-space:nowrap}
 .nav{position:fixed;left:50%;top:18px;transform:translateX(-50%);z-index:30;display:flex;gap:6px;align-items:center;padding:5px;background:rgba(255,255,255,.76);border:1px solid rgba(255,255,255,.88);border-radius:999px;backdrop-filter:blur(18px);box-shadow:var(--shadow-sm);transition:background .25s ease,box-shadow .25s ease,top .25s ease}
 .nav.is-scrolled{top:12px;background:rgba(255,255,255,.94);box-shadow:0 14px 42px rgba(20,27,22,.15)}
-.nav button{border:0;background:transparent;padding:10px 15px;border-radius:999px;color:var(--muted);cursor:pointer;transition:.2s}
 .nav button:hover{color:var(--ink)}
 .nav button.active{background:var(--ink);color:#fff}
 .header-actions{display:flex;gap:9px;align-items:center}

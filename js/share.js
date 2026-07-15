@@ -81,14 +81,41 @@ document.getElementById('copyShareBtn').addEventListener('click',function(){
 const topNav=document.getElementById('topNav');
 const topNavButtons=[...topNav.querySelectorAll('button[data-target]')];
 const topNavTargets=topNavButtons.map(button=>({button,element:document.getElementById(button.dataset.target)})).filter(item=>item.element);
-function setActiveTopNav(targetId){topNavButtons.forEach(button=>button.classList.toggle('active',button.dataset.target===targetId))}
-topNavButtons.forEach(button=>button.addEventListener('click',()=>{setActiveTopNav(button.dataset.target);document.getElementById(button.dataset.target)?.scrollIntoView({behavior:'smooth',block:'start'})}));
+let pendingTopNavTarget='';
+let pendingTopNavTimer=0;
+function setActiveTopNav(targetId){
+  topNavButtons.forEach(button=>{
+    const active=button.dataset.target===targetId;
+    button.classList.toggle('active',active);
+    if(active)button.setAttribute('aria-current','location');
+    else button.removeAttribute('aria-current');
+  });
+}
+topNavButtons.forEach(button=>button.addEventListener('click',()=>{
+  const target=document.getElementById(button.dataset.target);
+  if(!target)return;
+  pendingTopNavTarget=button.dataset.target;
+  clearTimeout(pendingTopNavTimer);
+  setActiveTopNav(pendingTopNavTarget);
+  const top=Math.max(0,target.getBoundingClientRect().top+window.scrollY-88);
+  window.scrollTo({top,behavior:'smooth'});
+  pendingTopNavTimer=setTimeout(()=>{pendingTopNavTarget='';syncTopNav()},1200);
+}));
 let topNavFramePending=false;
 function syncTopNav(){
   topNav.classList.toggle('is-scrolled',window.scrollY>24);
-  const marker=window.scrollY+130;
-  const passed=topNavTargets.filter(item=>item.element.getBoundingClientRect().top+window.scrollY<=marker).sort((a,b)=>(b.element.getBoundingClientRect().top+window.scrollY)-(a.element.getBoundingClientRect().top+window.scrollY));
-  if(passed[0])setActiveTopNav(passed[0].button.dataset.target);
+  if(pendingTopNavTarget){
+    const pending=document.getElementById(pendingTopNavTarget);
+    if(pending&&Math.abs(pending.getBoundingClientRect().top-88)<8)pendingTopNavTarget='';
+    else{topNavFramePending=false;return;}
+  }
+  if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-6){
+    setActiveTopNav(topNavTargets.at(-1)?.button.dataset.target);
+  }else{
+    const marker=window.scrollY+120;
+    const passed=topNavTargets.filter(item=>item.element.offsetTop<=marker);
+    if(passed.length)setActiveTopNav(passed.at(-1).button.dataset.target);
+  }
   topNavFramePending=false;
 }
 window.addEventListener('scroll',()=>{if(!topNavFramePending){topNavFramePending=true;requestAnimationFrame(syncTopNav)}},{passive:true});

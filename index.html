@@ -15,10 +15,12 @@
     <span class="brand-sub">US Stocks</span>
   </div>
   <nav class="nav" id="topNav">
-    <button class="active" data-target="opportunity">今日机会</button>
-    <button data-target="market">全市场</button>
-    <button data-target="peerCompare">同行对比</button>
-    <button data-target="eventSection">事件日历</button>
+    <button class="active" type="button" data-target="marketOverview">市场概况</button>
+    <button type="button" data-target="opportunity">投资组合</button>
+    <button type="button" data-target="rankSection">机会榜单</button>
+    <button type="button" data-target="market">市场行情</button>
+    <button type="button" data-target="insightSection">资金事件</button>
+    <button type="button" data-target="peerCompare">同行比较</button>
   </nav>
 </header>
 
@@ -45,7 +47,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="marketOverview">
   <div class="section-head"><div><h2>市场概况</h2></div></div>
   <div class="broker-market-board">
     <div class="broker-market-summary">
@@ -103,7 +105,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="rankSection">
   <div class="section-head"><div><h2>机会榜单</h2></div></div>
   <div class="rank-shell">
     <div class="rank-tabs" id="rankTabs"><button class="pill active" data-rank="gainers">涨幅榜</button><button class="pill" data-rank="volume">爆量榜</button><button class="pill" data-rank="high">突破榜</button><button class="pill" data-rank="earnings">财报异动</button><button class="pill" data-rank="btc">BTC 关联榜</button></div>
@@ -127,7 +129,7 @@
   </div>
 </section>
 
-<section class="section insight-grid">
+<section class="section insight-grid" id="insightSection">
   <article class="heatmap">
     <div class="heatmap-head"><div><h3>今天资金在交易什么？</h3></div><span class="flow-date">示例快照 · 07/15</span></div>
     <div class="heat-grid">

@@ -35,8 +35,6 @@ const glossaryDefinitions={
   '自由现金流':'经营现金流扣除资本支出后剩余的现金，可用于回购、分红、还债或再投资。',
   '回购金额':'公司用于回购自身股票的资金规模。',
   '现金净变化':'某一期间公司现金余额的净增加或净减少。',
-  '财报':'公司定期披露的财务报告，通常包括营收、利润、资产负债与现金流等数据。',
-  '财报倒计时':'距离下一次财报公布日期剩余的时间。',
   '隐含波动率':'由期权价格反推出的市场预期波动程度，常用于衡量财报等事件前的预期风险。',
   '估值分位':'当前估值在历史区间中的相对位置，例如 70% 分位表示高于约 70% 的历史时期。',
   '行业平均':'同一行业可比公司的平均水平，用于判断单家公司是否高于或低于同行。',
@@ -54,7 +52,7 @@ function annotateGlossary(root=document.body){
     acceptNode(node){
       if(!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
       const p=node.parentElement;
-      if(!p || p.closest('script,style,textarea,input,option,svg,.glossary-term,.glossary-tooltip')) return NodeFilter.FILTER_REJECT;
+      if(!p || p.closest('script,style,textarea,input,option,svg,#panel-financials,.glossary-term,.glossary-tooltip')) return NodeFilter.FILTER_REJECT;
       glossaryRegex.lastIndex=0;
       return glossaryRegex.test(node.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
     }
